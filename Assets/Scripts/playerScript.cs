@@ -30,9 +30,9 @@ public class playerScript : MonoBehaviour
     void Update()
     {
         //# Sliding System ##
-        if(Input.GetButtonDown("Slide") && grounded && !sliding) { // comando para fazer o slide se o player estiver no chão
+        if(Input.GetButtonDown("Slide") && grounded && !sliding) { 
                       
-            StartCoroutine("tempoSlide"); // comeca a rotina tempo Slide, que coloca o bool sliding como falso depois de um tempo determinado
+            StartCoroutine("tempoSlide"); 
         }
         //##
         //## Jumping System ##

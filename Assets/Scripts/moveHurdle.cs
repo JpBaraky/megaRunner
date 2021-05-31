@@ -20,5 +20,11 @@ public class moveHurdle : MonoBehaviour
         hurdleX += hurdleSpeed * Time.deltaTime;
         transform.position = new Vector3(hurdleX, transform.position.y, transform.position.z); 
         // ##---------------##
+
+        // ## Hurdle Destroy ##
+        if(hurdleX < -5){
+            Destroy(this.gameObject);
+        }     
+        //##
     }
 }
