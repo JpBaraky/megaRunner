@@ -27,7 +27,7 @@ public class hurdleSpawn : MonoBehaviour
     private IEnumerator spawnTimer(){
         spawning = true;
         position = Random.Range(0,2); 
-        Debug.Log(position);
+        
         yield return new WaitForSeconds(Random.Range(spawnRateMin, spawnRateMax));
         GameObject tempPreFab =  Instantiate(hurdlePreFab) as GameObject;
        
