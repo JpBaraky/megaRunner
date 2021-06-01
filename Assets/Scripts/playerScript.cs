@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class playerScript : MonoBehaviour
 {
@@ -60,8 +61,9 @@ public class playerScript : MonoBehaviour
     // ##
     //## Hurdle colision system ##
     void OnTriggerEnter2D(){
-        Debug.Log("colision");
+    
         
+         SceneManager.LoadScene("GameOver");
 
     }
     // ##
