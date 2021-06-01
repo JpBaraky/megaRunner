@@ -4,7 +4,7 @@ Control Mega Man in a endless runner, you have to slide and jump hurdles to gain
 
 ### Software
 
-Made with Unity3D 2020.2.0a11.1312.3 
+Made with Unity3D 2021.1.0b2.1745 
 Scripts made with C#
 
 
