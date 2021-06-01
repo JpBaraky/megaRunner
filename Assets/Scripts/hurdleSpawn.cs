@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class hurdleSpawn : MonoBehaviour
 {
+    [Header("PreFab Set")]
     public GameObject hurdlePreFab;
+    [Header("Spawining Systems")]
     public float spawnRateMin;
     public float spawnRateMax;
     public bool spawning;
@@ -18,6 +20,7 @@ public class hurdleSpawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if(!spawning){
         StartCoroutine("spawnTimer");
         }
