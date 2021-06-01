@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class playerScript : MonoBehaviour
 {
@@ -19,8 +20,12 @@ public class playerScript : MonoBehaviour
     public LayerMask whatIsGround;
     public Transform groundCheck;
     public Transform colisor;
-    [Header("Audio System")]
+    [Header("Audio Systems")]
     public AudioClip[] sounds;
+    [Header("Score Systems")]
+    public static int score;
+    public TextMeshProUGUI scoreTxt;
+
     
     
     // Start is called before the first frame update
@@ -36,11 +41,14 @@ public class playerScript : MonoBehaviour
         playerAnimator = GetComponent<Animator>();
         playerRb = GetComponent<Rigidbody2D>();
         //## 
+        score = 0;
+        PlayerPrefs.SetInt("Score", score);
     }
 
     // Update is called once per frame
     void Update()
     {
+        scoreTxt.text = score.ToString(); // Put the score in the text box
         //# Sliding System ##
         if (Input.GetMouseButtonDown(1) && grounded && !sliding)
         {
@@ -79,6 +87,10 @@ public class playerScript : MonoBehaviour
     //## Hurdle colision system ##
     void OnTriggerEnter2D()
     {
+        PlayerPrefs.SetInt("Score", score);
+        if(score > PlayerPrefs.GetInt("HiScore")){
+            PlayerPrefs.SetInt("HiScore", score);
+        }
 
 
         SceneManager.LoadScene("GameOver");
