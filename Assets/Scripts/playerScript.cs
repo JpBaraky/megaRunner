@@ -19,6 +19,10 @@ public class playerScript : MonoBehaviour
     public LayerMask whatIsGround;
     public Transform groundCheck;
     public Transform colisor;
+    [Header("Audio System")]
+    public AudioClip[] sounds;
+    
+    
     // Start is called before the first frame update
     private void Awake()
     {
@@ -50,6 +54,7 @@ public class playerScript : MonoBehaviour
             sliding = false;
             jumping = true;
             playerRb.AddForce(new Vector2(0, jumpForce));
+            playerAudio.PlayOneShot(sounds[0]);
 
         }
         //##   
@@ -64,6 +69,7 @@ public class playerScript : MonoBehaviour
     IEnumerator tempoSlide()
     {
         sliding = true;
+        playerAudio.PlayOneShot(sounds[1]);
         colisor.position = new Vector3(colisor.position.x, colisor.position.y - 0.2f, colisor.position.z);
         yield return new WaitForSecondsRealtime(slideTime);
         sliding = false;
